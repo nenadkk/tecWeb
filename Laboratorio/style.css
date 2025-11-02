@@ -332,7 +332,11 @@ footer p{
     margin-left: 25%;
 }
 
-.player ul li{
+.riconoscimenti ul {
+    margin-top: 1.5em;
+}
+
+.riconoscimenti ul li{
     list-style-type: none;
     background-image: url("./materiale/images/palla.png");
     background-position: left center;
@@ -340,12 +344,6 @@ footer p{
     background-repeat: no-repeat;
     padding-left: 2em;
     margin-left: 1.0em;
-}
-
-
-
-.player ul {
-    margin-top: 1.5em;
 }
 
 

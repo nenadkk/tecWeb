@@ -8,7 +8,7 @@
         <meta name="description" content="Pagina dedicata alla squadra femminile (della società Italvolley)"> <!-- c'è un massimo di caratteri --> 
         <meta name="keywords" content="pallavolo, Italvolley, nazionali, maschile, femminile, mondiali, olimpiadi, Paola Egonu, Alessandro 
         Michieletto"> <!-- meglio partire prima da queste e poi costruirci la descrizione, basta in singolare|plurale poi dell'altro se ne occupa il browser + l'ordine delle keyword è rilevante + vanno inserite perchè se non ci sono abbassano la trustness-->
-    
+
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,312 +17,321 @@
         <meta name="author" content="Sofia De Basi">
     </head>
     <body>
-    <!-- image replecement: trasforma un testo in un'immagine in modod che sia accessibile e favorisce il ranking in quanto è testo-->
-    <header>
-        <h1>Federazione Italiana Pallavolo</h1>
-        <h2>L'Italvolley femminile e maschile</h2>
-    </header>
-    
-    <nav id="breadcrumb">
-        <p>Ti trovi in: <a href="index.html">Home</a> >> La squadra femminile </p>
-    </nav>
-    <nav id="menu">
-        <ul>
-            <li><a href="index.html"><span lang="en">Home</span></a></li> <!-- NO come link perchè avrebbe creato un loop + lang="en" basta perchè è un'unica patola-->
-            <li> <a href="allenatori.html">Gli allenatori</a></li>
-            <li>La squadra femminile</li>
-            <li> <a href="squadraMaschile.html">La squadra maschile</a></li>
-            <li> <a href="fairplay.html">Il <span lang="en">fair play</span></a></li> <!-- dato che è un'espressione serve span-->
-        </ul>
-    </nav>
-    <!-- ordine degli h un'unico h1 nell'header e un unico h1 nel main ==> alzare le keywords -->
-        
-    <main id="content">
-        <h1>La Squadra Femminile</h1>
+        <!-- image replecement: trasforma un testo in un'immagine in modod che sia accessibile e favorisce il ranking in quanto è testo-->
+        <header>
+            <img src="materiale/images/coppe.jpg" id="coppe" alt="Immagine con le due coppe vinte ai mondiali">
+            <img src="materiale/images/capitani.png" id="capitani" alt="Immagine con i due capitani delle nazionali">
 
-        <dl class="players"> <!-- div è poco semantico quindi o section (conta l'ordine) o article (non conta l'ordine)-->
-            <dt>Anna Danesi - <em>Capitano</em></dt>
-            <dd>
-                <img src="./materiale/images/danesi.jpg" alt ="">
-                <dl class="player">
-                    <dt>Data di nascita:</dt>
-                    <dd><time datetime="1996-04-20">20/04/1996</time></dd>
-                    <dt>Luogo:</dt>
-                    <dd>Brescia</dd>
-                    <dt>Squadra:</dt>
-                    <dd>Pro Victoria</dd>
-                    <dt>Ruolo:</dt>
-                    <dd>Centrale</dd>
-                    <dt>Altezza:</dt>
-                    <dd>196 <abbr title="centimetri">cm</abbr></dd>
-                    <dt>Maglia:</dt>
-                    <dd>11</dd>
-                    <dt>Maglia in nazionale:</dt>
-                    <dd>11</dd>
-                    <dt>Punti totali:</dt>
-                    <dd>43</dd>
-                    <dt class="riconoscimenti">Riconoscimenti:</dt>
-                    <dd>
-                        <ul>
-                            <li>Miglior centrale nel Campionato mondiale femminile <span leng="en">under</span> 20 di pallavolo femminile del 2015.</li> 
-                            <li>Miglior centrale nel Campionato europeo femminile di pallavolo 2021.</li> 
-                            <li>Miglior centrale nel Campionato mondiale femminile di pallavolo 2022.</li> 
-                            <li>Miglior centrale di Pallavolo ai Giochi della XXXIII Olimpiade - Torneo femminile, 2024.</li>    
-                        </ul>
-                    </dd>
-                </dl>
-            </dd>
-            <!--<dl class="roles">
+            <h1>Federazione Italiana Pallavolo</h1>
+            <h2>L'Italivolley femminile e maschile</h2>
+
+
+        </header>
+
+        <nav id="breadcrumb">
+            <p>Ti trovi in: <a href="index.html">Home</a> >> La squadra femminile </p>
+        </nav>
+        <nav id="menu">
+            <ul>
+                <li><a href="index.html"><span lang="en">Home</span></a></li> <!-- NO come link perchè avrebbe creato un loop + lang="en" basta perchè è un'unica patola-->
+                <li> <a href="allenatori.html">Gli allenatori</a></li>
+                <li id="currentlink">La squadra femminile</li>
+                <li> <a href="squadraMaschile.html">La squadra maschile</a></li>
+                <li> <a href="fairplay.html">Il <span lang="en">fair play</span></a></li> <!-- dato che è un'espressione serve span-->
+            </ul>
+        </nav>
+        <!-- ordine degli h un'unico h1 nell'header e un unico h1 nel main ==> alzare le keywords -->
+
+        <main id="content">
+            <h1>La Squadra Femminile</h1>
+
+            <dl class="players"> <!-- div è poco semantico quindi o section (conta l'ordine) o article (non conta l'ordine)-->
+                <dt>Anna Danesi - <em>Capitano</em></dt>
+                <dd>
+                    <img src="./materiale/images/danesi.jpg" alt ="">
+                    <dl class="player">
+                        <dt>Data di nascita:</dt>
+                        <dd><time datetime="1996-04-20">20/04/1996</time></dd>
+                        <dt>Luogo:</dt>
+                        <dd>Brescia</dd>
+                        <dt>Squadra:</dt>
+                        <dd>Pro Victoria</dd>
+                        <dt>Ruolo:</dt>
+                        <dd>Centrale</dd>
+                        <dt>Altezza:</dt>
+                        <dd>196 <abbr title="centimetri">cm</abbr></dd>
+                        <dt>Maglia:</dt>
+                        <dd>11</dd>
+                        <dt>Maglia in nazionale:</dt>
+                        <dd>11</dd>
+                        <dt>Punti totali:</dt>
+                        <dd>43</dd>
+                        <dt>Riconoscimenti:</dt>
+                        <dd class="riconoscimenti">
+                            <ul>
+                                <li>Miglior centrale nel Campionato mondiale femminile <span leng="en">under</span> 20 di pallavolo femminile del 2015.</li> 
+                                <li>Miglior centrale nel Campionato europeo femminile di pallavolo 2021.</li> 
+                                <li>Miglior centrale nel Campionato mondiale femminile di pallavolo 2022.</li> 
+                                <li>Miglior centrale di Pallavolo ai Giochi della XXXIII Olimpiade - Torneo femminile, 2024.</li>    
+                            </ul>
+                        </dd>
+                    </dl>
+                </dd>
+                <!--<dl class="roles">
                     <dt>Palleggiatrici</dt>
                     <dd> -->
-            <h2>Palleggiatrici</h2> 
-            <dt>Carlotta Cambi</dt>
-            <dd>
-                <img src="./materiale/images/cambi.jpg" alt ="">
-                <dl class="player">
-                    <dt>Data di nascita:</dt>
-                    <dd><time datetime="1996-05-28">28/05/1996</time></dd>
-                    <dt>Luogo:</dt>
-                    <dd>San Miniato</dd>
-                    <dt>Squadra:</dt>
-                    <dd>Pinerolo</dd>
-                    <dt>Ruolo:</dt>
-                    <dd>Palleggiatrice</dd>
-                    <dt>Altezza:</dt>
-                    <dd>176 <abbr title="centimetri">cm</abbr></dd>
-                    <dt>Maglia:</dt>
-                    <dd>3</dd>
-                    <dt>Maglia in nazionale:</dt>
-                    <dd>3</dd>
-                    <dt>Vinti:</dt>
-                    <dd>12</dd>
-                    <dt>Note:</dt>
-                    <dd>Ha fatto parte della squadra <abbr title="società pallavolistica femminile italiana con sede a Novara">"AGIL"</abbr> <!-- chiedere -->
-                    durante la stagione 2016/17 e 2022/2023. Dalla stagione 2023/2024 fa parte della squadra "Pinerolo".</dd>
-                </dl>
-            </dd>
+                        <h2>Palleggiatrici</h2> 
+                        <dt>Carlotta Cambi</dt>
+                        <dd>
+                            <img src="./materiale/images/cambi.jpg" alt ="">
+                            <dl class="player">
+                                <dt>Data di nascita:</dt>
+                                <dd><time datetime="1996-05-28">28/05/1996</time></dd>
+                                <dt>Luogo:</dt>
+                                <dd>San Miniato</dd>
+                                <dt>Squadra:</dt>
+                                <dd>Pinerolo</dd>
+                                <dt>Ruolo:</dt>
+                                <dd>Palleggiatrice</dd>
+                                <dt>Altezza:</dt>
+                                <dd>176 <abbr title="centimetri">cm</abbr></dd>
+                                <dt>Maglia:</dt>
+                                <dd>3</dd>
+                                <dt>Maglia in nazionale:</dt>
+                                <dd>3</dd>
+                                <dt>Vinti:</dt>
+                                <dd>12</dd>
+                                <dt>Note:</dt>
+                                <dd>Ha fatto parte della squadra <abbr title="società pallavolistica femminile italiana con sede a Novara">"AGIL"</abbr> <!-- chiedere -->
+                                    durante la stagione 2016/17 e 2022/2023. Dalla stagione 2023/2024 fa parte della squadra "Pinerolo".</dd>
+                            </dl>
+                        </dd>
 
-            <dt>Alessia Orro</dt>
-            <dd>
-                <img src="./materiale/images/orro.jpg" alt ="">
-                <dl class="player">
-                    <dt>Data di nascita:</dt>
-                    <dd><time datetime="1998-07-18">18/07/1998</time></dd>
-                    <dt>Luogo:</dt>
-                    <dd>Oristano</dd>
-                    <dt>Squadra:</dt>
-                    <dd>Pro Victoria</dd>
-                    <dt>Ruolo:</dt>
-                    <dd>Palleggiatrice</dd>
-                    <dt>Altezza:</dt>
-                    <dd>180 <abbr title="centimetri">cm</abbr></dd>
-                    <dt>Maglia:</dt>
-                    <dd>8</dd>
-                    <dt>Maglia in nazionale:</dt>
-                    <dd>8</dd>
-                    <dt>Vinti:</dt>
-                    <dd>105</dd>
-                    <dt class="riconoscimenti">Riconoscimenti:</dt>
-                    <dd>
-                        <ul>
-                            <li><abbr title="Most Valuable Player">MVP</abbr> coppa <abbr title="Confédération Européenne de Volleyball">CEV</abbr> 2021</li>  <!-- chiedere se va specificata la lingua -->
-                            <li>Miglior palleggiatrice, <span leng="en">Volleyball Nations League</span>, 2022.</li> 
-                            <li>Miglior palleggiatrice, <span leng="en">Volleyball Nations League</span>, 2024.</li> 
-                            <li>Miglior palleggiatrice di Pallavolo, Giochi della XXXIII Olimpiade - Torneo femminile, 2024.</li>    
-                        </ul>
-                    </dd>
-                </dl>
-            </dd>
+                        <dt>Alessia Orro</dt>
+                        <dd>
+                            <img src="./materiale/images/orro.jpg" alt ="">
+                            <dl class="player">
+                                <dt>Data di nascita:</dt>
+                                <dd><time datetime="1998-07-18">18/07/1998</time></dd>
+                                <dt>Luogo:</dt>
+                                <dd>Oristano</dd>
+                                <dt>Squadra:</dt>
+                                <dd>Pro Victoria</dd>
+                                <dt>Ruolo:</dt>
+                                <dd>Palleggiatrice</dd>
+                                <dt>Altezza:</dt>
+                                <dd>180 <abbr title="centimetri">cm</abbr></dd>
+                                <dt>Maglia:</dt>
+                                <dd>8</dd>
+                                <dt>Maglia in nazionale:</dt>
+                                <dd>8</dd>
+                                <dt>Vinti:</dt>
+                                <dd>105</dd>
+                                <dt>Riconoscimenti:</dt>
+                                <dd class="riconoscimenti">
+                                    <ul>
+                                        <li><abbr title="Most Valuable Player">MVP</abbr> coppa <abbr title="Confédération Européenne de Volleyball">CEV</abbr> 2021</li>  <!-- chiedere se va specificata la lingua -->
+                                        <li>Miglior palleggiatrice, <span leng="en">Volleyball Nations League</span>, 2022.</li> 
+                                        <li>Miglior palleggiatrice, <span leng="en">Volleyball Nations League</span>, 2024.</li> 
+                                        <li>Miglior palleggiatrice di Pallavolo, Giochi della XXXIII Olimpiade - Torneo femminile, 2024.</li>    
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </dd>
 
-            <h2>Schiacciatrici</h2>
-            <dt>Gaia Giovannini</dt>
-            <dd>
-                <img src="./materiale/images/giovannini.jpeg" alt ="">
-                <dl class="player">
-                    <dt>Data di nascita:</dt>
-                    <dd><time datetime="2001-12-17">17/12/2001</time></dd>
-                    <dt>Luogo:</dt>
-                    <dd>Bologna</dd>
-                    <dt>Squadra:</dt>
-                    <dd>Megavolley</dd>
-                    <dt>Ruolo:</dt>
-                    <dd>Schiacciatrice</dd>
-                    <dt>Altezza:</dt>
-                    <dd>182 <abbr title="centimetri">cm</abbr></dd>
-                    <dt>Maglia:</dt>
-                    <dd>17</dd>
-                    <dt>Maglia in nazionale:</dt>
-                    <dd>27</dd>
-                    <dt>Punti totali:</dt>
-                    <dd>10</dd>
-                    <dt class="riconoscimenti">Riconoscimenti:</dt>
-                    <dd>
-                        <ul>
-                            <li>Miglior Sportiva 2024, San Giovanni in Persiceto</li> 
-                            <li>Collana d'Oro al merito sportivo</li>                          
-                        </ul>
-                    </dd>
-                </dl>
-            </dd>
+                        <h2>Schiacciatrici</h2>
+                        <dt>Gaia Giovannini</dt>
+                        <dd>
+                            <img src="./materiale/images/giovannini.jpeg" alt ="">
+                            <dl class="player">
+                                <dt>Data di nascita:</dt>
+                                <dd><time datetime="2001-12-17">17/12/2001</time></dd>
+                                <dt>Luogo:</dt>
+                                <dd>Bologna</dd>
+                                <dt>Squadra:</dt>
+                                <dd>Megavolley</dd>
+                                <dt>Ruolo:</dt>
+                                <dd>Schiacciatrice</dd>
+                                <dt>Altezza:</dt>
+                                <dd>182 <abbr title="centimetri">cm</abbr></dd>
+                                <dt>Maglia:</dt>
+                                <dd>17</dd>
+                                <dt>Maglia in nazionale:</dt>
+                                <dd>27</dd>
+                                <dt>Punti totali:</dt>
+                                <dd>10</dd>
+                                <dt>Riconoscimenti:</dt>
+                                <dd class="riconoscimenti">
+                                    <ul>
+                                        <li>Miglior Sportiva 2024, San Giovanni in Persiceto</li> 
+                                        <li>Collana d'Oro al merito sportivo</li>                          
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </dd>
 
-            <dt>Stella Nervini</dt>                           
-            <dd>
-                <img src="./materiale/images/nervini.jpg" alt ="">
-                <dl class="player">
-                    <dt>Data di nascita:</dt>
-                    <dd><time datetime="2003-09-10">10/09/2003</time></dd>
-                    <dt>Luogo:</dt>
-                    <dd>Milano</dd>
-                    <dt>Squadra:</dt>
-                    <dd>Chieri '76</dd>
-                    <dt>Ruolo:</dt>
-                    <dd>Schiacciatrice</dd>
-                    <dt>Altezza:</dt>
-                    <dd>184 <abbr title="centimetri">cm</abbr></dd>
-                    <dt>Maglia:</dt>
-                    <dd>11</dd>
-                    <dt>Maglia in nazionale:</dt>
-                    <dd>16</dd>
-                    <dt>Punti Totali:</dt>
-                    <dd>54</dd>
-                    <dt class="riconoscimenti" >Riconoscimenti:</dt>
-                    <dd>
-                        <ul>
-                            <li>Miglior Schiacciatrice, Campionato del Mondo Under 21, 2023</li> 
-                            <li><abbr title="Most Valuable Player">MVP</abbr>, Serie A1, Bisonte Firenze.</li>                          
-                        </ul>
-                    </dd>
-                </dl>
-            </dd>
+                        <dt>Stella Nervini</dt>                           
+                        <dd>
+                            <img src="./materiale/images/nervini.jpg" alt ="">
+                            <dl class="player">
+                                <dt>Data di nascita:</dt>
+                                <dd><time datetime="2003-09-10">10/09/2003</time></dd>
+                                <dt>Luogo:</dt>
+                                <dd>Milano</dd>
+                                <dt>Squadra:</dt>
+                                <dd>Chieri '76</dd>
+                                <dt>Ruolo:</dt>
+                                <dd>Schiacciatrice</dd>
+                                <dt>Altezza:</dt>
+                                <dd>184 <abbr title="centimetri">cm</abbr></dd>
+                                <dt>Maglia:</dt>
+                                <dd>11</dd>
+                                <dt>Maglia in nazionale:</dt>
+                                <dd>16</dd>
+                                <dt>Punti Totali:</dt>
+                                <dd>54</dd>
+                                <dt>Riconoscimenti:</dt>
+                                <dd class="riconoscimenti">
+                                    <ul>
+                                        <li>Miglior Schiacciatrice, Campionato del Mondo Under 21, 2023</li> 
+                                        <li><abbr title="Most Valuable Player">MVP</abbr>, Serie A1, Bisonte Firenze.</li>                          
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </dd>
 
-            <dt>Myriam Sylla</dt>                     
-            <dd>
-                <img src="./materiale/images/sylla.jpg" alt =""> <!-- formato -->
-                <dl class="player">
-                    <dt>Data di nascita:</dt>
-                    <dd><time datetime="1995-01-08">08/01/1995</time></dd>
-                    <dt>Luogo:</dt>
-                    <dd>Palermo</dd>
-                    <dt>Squadra:</dt>
-                    <dd>Pro Victoria</dd>
-                    <dt>Ruolo:</dt>
-                    <dd>Schiacciatrice</dd>
-                    <dt>Altezza:</dt>
-                    <dd>184 <abbr title="centimetri">cm</abbr></dd>
-                    <dt>Maglia:</dt>
-                    <dd>17</dd>
-                    <dt>Maglia in nazionale:</dt>
-                    <dd>17</dd>
-                    <dt>Punti Totali:</dt>
-                    <dd>60</dd>
-                    <dt class="riconoscimenti">Riconoscimenti:</dt>
-                    <dd>
-                        <ul>
-                            <li>Miglior schiacciatrice, Campionato Europeo di pallavolo femminile, 2021.</li> 
-                            <li>Miglior schiacciatrice, Campionato Mondiale di pallavolo femminile, 2022.</li> 
-                            <li>Miglior schiacciatrice, <span leng="en">Volleyball Nations League</span>, 2024.</li> 
-                            <li>Miglior schiacciatrice di Pallavolo, Giochi della XXXIII Olimpiade - Torneo femminile, 2024.</li>                          
-                        </ul>
-                    </dd>
-                </dl>
-            </dd>
+                        <dt>Myriam Sylla</dt>                     
+                        <dd>
+                            <img src="./materiale/images/sylla.jpg" alt =""> <!-- formato -->
+                            <dl class="player">
+                                <dt>Data di nascita:</dt>
+                                <dd><time datetime="1995-01-08">08/01/1995</time></dd>
+                                <dt>Luogo:</dt>
+                                <dd>Palermo</dd>
+                                <dt>Squadra:</dt>
+                                <dd>Pro Victoria</dd>
+                                <dt>Ruolo:</dt>
+                                <dd>Schiacciatrice</dd>
+                                <dt>Altezza:</dt>
+                                <dd>184 <abbr title="centimetri">cm</abbr></dd>
+                                <dt>Maglia:</dt>
+                                <dd>17</dd>
+                                <dt>Maglia in nazionale:</dt>
+                                <dd>17</dd>
+                                <dt>Punti Totali:</dt>
+                                <dd>60</dd>
+                                <dt>Riconoscimenti:</dt>
+                                <dd class="riconoscimenti">
+                                    <ul>
+                                        <li>Miglior schiacciatrice, Campionato Europeo di pallavolo femminile, 2021.</li> 
+                                        <li>Miglior schiacciatrice, Campionato Mondiale di pallavolo femminile, 2022.</li> 
+                                        <li>Miglior schiacciatrice, <span leng="en">Volleyball Nations League</span>, 2024.</li> 
+                                        <li>Miglior schiacciatrice di Pallavolo, Giochi della XXXIII Olimpiade - Torneo femminile, 2024.</li>                          
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </dd>
 
-            <dt>Stella Nervini</dt>                           
-            <dd>
-                <img src="./materiale/images/nervini.jpg" alt ="">
-                <dl class="player">
-                    <dt>Data di nascita:</dt>
-                    <dd><time datetime="2003-09-10">10/09/2003</time></dd>
-                    <dt>Luogo:</dt>
-                    <dd>Milano</dd>
-                    <dt>Squadra:</dt>
-                    <dd>Chieri '76</dd>
-                    <dt>Ruolo:</dt>
-                    <dd>Schiacciatrice</dd>
-                    <dt>Altezza:</dt>
-                    <dd>184 <abbr title="centimetri">cm</abbr></dd>
-                    <dt>Maglia:</dt>
-                    <dd>11</dd>
-                    <dt>Maglia in nazionale:</dt>
-                    <dd>16</dd>
-                    <dt>Punti Totali:</dt>
-                    <dd>54</dd>
-                    <dt class="riconoscimenti">Riconoscimenti:</dt>
-                    <dd>
-                        <ul>
-                            <li>Miglior Schiacciatrice, Campionato del Mondo <span leng="en">Under</span> 21, 2023</li> 
-                            <li><abbr title="Most Valuable Player">MVP</abbr>, Serie A1, Bisonte Firenze.</li>                          
-                        </ul>
-                    </dd>
-                </dl>
-            </dd>
+                        <dt>Stella Nervini</dt>                           
+                        <dd>
+                            <img src="./materiale/images/nervini.jpg" alt ="">
+                            <dl class="player">
+                                <dt>Data di nascita:</dt>
+                                <dd><time datetime="2003-09-10">10/09/2003</time></dd>
+                                <dt>Luogo:</dt>
+                                <dd>Milano</dd>
+                                <dt>Squadra:</dt>
+                                <dd>Chieri '76</dd>
+                                <dt>Ruolo:</dt>
+                                <dd>Schiacciatrice</dd>
+                                <dt>Altezza:</dt>
+                                <dd>184 <abbr title="centimetri">cm</abbr></dd>
+                                <dt>Maglia:</dt>
+                                <dd>11</dd>
+                                <dt>Maglia in nazionale:</dt>
+                                <dd>16</dd>
+                                <dt>Punti Totali:</dt>
+                                <dd>54</dd>
+                                <dt>Riconoscimenti:</dt>
+                                <dd class="riconoscimenti">
+                                    <ul>
+                                        <li>Miglior Schiacciatrice, Campionato del Mondo <span leng="en">Under</span> 21, 2023</li> 
+                                        <li><abbr title="Most Valuable Player">MVP</abbr>, Serie A1, Bisonte Firenze.</li>                          
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </dd>
 
-            <dt>Loveth Omoruyi</dt>                           
-            <dd>
-                <img src="./materiale/images/omoruyi.jpg" alt ="">
-                <dl class="player">
-                    <dt>Data di nascita:</dt>
-                    <dd><time datetime="2002-08-25">25/08/2002</time></dd>
-                    <dt>Luogo:</dt>
-                    <dd>Lodi</dd>
-                    <dt>Squadra:</dt>
-                    <dd>Reale Mutua Fenera Chieri</dd>
-                    <dt>Ruolo:</dt>
-                    <dd>Schiacciatrice</dd>
-                    <dt>Altezza:</dt>
-                    <dd>184 <abbr title="centimetri">cm</abbr></dd>
-                    <dt>Maglia:</dt>
-                    <dd>2</dd>
-                    <dt>Maglia in nazionale:</dt>
-                    <dd>21</dd>
-                    <dt>Punti Totali:</dt>
-                    <dd>60</dd>
-                    <dt class="riconoscimenti">Riconoscimenti:</dt>
-                    <dd>
-                        <ul>
-                            <li>Miglior schiacciatrice del torneo, Mondiale <span leng="en">Under</span>-20, 2021</li> 
-                            <li>Miglior schiacciatrice, Mondiale <span leng="en">Under</span>-18, 2019</li>                          
-                        </ul>
-                    </dd>
-                </dl>
-            </dd>
+                        <dt>Loveth Omoruyi</dt>                           
+                        <dd>
+                            <img src="./materiale/images/omoruyi.jpg" alt ="">
+                            <dl class="player">
+                                <dt>Data di nascita:</dt>
+                                <dd><time datetime="2002-08-25">25/08/2002</time></dd>
+                                <dt>Luogo:</dt>
+                                <dd>Lodi</dd>
+                                <dt>Squadra:</dt>
+                                <dd>Reale Mutua Fenera Chieri</dd>
+                                <dt>Ruolo:</dt>
+                                <dd>Schiacciatrice</dd>
+                                <dt>Altezza:</dt>
+                                <dd>184 <abbr title="centimetri">cm</abbr></dd>
+                                <dt>Maglia:</dt>
+                                <dd>2</dd>
+                                <dt>Maglia in nazionale:</dt>
+                                <dd>21</dd>
+                                <dt>Punti Totali:</dt>
+                                <dd>60</dd>
+                                <dt>Riconoscimenti:</dt>
+                                <dd class="riconoscimenti">
+                                    <ul>
+                                        <li>Miglior schiacciatrice del torneo, Mondiale <span leng="en">Under</span>-20, 2021</li> 
+                                        <li>Miglior schiacciatrice, Mondiale <span leng="en">Under</span>-18, 2019</li>                          
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </dd>
 
-            <h2>Centrali</h2>
-            <dt>Sarah Fahr</dt>
-            <dd>
-                <img src="./materiale/images/fahr.jpg" alt ="">
-                <dl class="player">
-                    <dt>Data di nascita:</dt>
-                    <dd><time datetime="2001-09-12">12/09/2001</time></dd>
-                    <dt>Luogo:</dt>
-                    <dd>Kulmbach</dd>
-                    <dt>Squadra:</dt>
-                    <dd>Imoco</dd>
-                    <dt>Ruolo:</dt>
-                    <dd>Centrale</dd>
-                    <dt>Altezza:</dt>
-                    <dd>192 <abbr title="centimetri">cm</abbr></dd>
-                    <dt>Maglia:</dt>
-                    <dd>19</dd>
-                    <dt>Maglia in nazionale:</dt>
-                    <dd>19</dd>
-                    <dt>Punti totali:</dt>
-                    <dd>20</dd>
-                    <dt class="riconoscimenti">Riconoscimenti:</dt>
-                    <dd>
-                        <ul>
-                            <li>Miglior centrale, Campionato Europeo di pallavolo femminile <span leng="en">Under</span>-19, 2018.</li> 
-                            <li>Miglior centrale, <span leng="fr">Montreux</span> <span leng="en">Volley Master</span>, 2019.</li> 
-                            <li>Miglior centrale, <span leng="en">Volleyball Nations League</span>, 2024.</li> 
-                            <li><abbr title="Most Valuable Player">MVP</abbr>, Supercoppa Italiana di Pallavolo femminile, 2024.</li>                          
-                        </ul>
-                    </dd>
-                </dl>
-            </dd>
-    </main>
-    <footer>
-        <img class="imgValidCode" src="./materiale/images/valid-xhtml10.png" alt="XHTML valido">
-        <p>XHTML valido Sofia De Blasi & Federazione Italiana Pallavolo - All rights Reserved CSS valido</p>
-    </footer>
+                        <h2>Centrali</h2>
+                        <dt>Sarah Fahr</dt>
+                        <dd>
+                            <img src="./materiale/images/fahr.jpg" alt ="">
+                            <dl class="player">
+                                <dt>Data di nascita:</dt>
+                                <dd><time datetime="2001-09-12">12/09/2001</time></dd>
+                                <dt>Luogo:</dt>
+                                <dd>Kulmbach</dd>
+                                <dt>Squadra:</dt>
+                                <dd>Imoco</dd>
+                                <dt>Ruolo:</dt>
+                                <dd>Centrale</dd>
+                                <dt>Altezza:</dt>
+                                <dd>192 <abbr title="centimetri">cm</abbr></dd>
+                                <dt>Maglia:</dt>
+                                <dd>19</dd>
+                                <dt>Maglia in nazionale:</dt>
+                                <dd>19</dd>
+                                <dt>Punti totali:</dt>
+                                <dd>20</dd>
+                                <dt>Riconoscimenti:</dt>
+                                <dd class="riconoscimenti">
+                                    <ul>
+                                        <li>Miglior centrale, Campionato Europeo di pallavolo femminile <span leng="en">Under</span>-19, 2018.</li> 
+                                        <li>Miglior centrale, <span leng="fr">Montreux</span> <span leng="en">Volley Master</span>, 2019.</li> 
+                                        <li>Miglior centrale, <span leng="en">Volleyball Nations League</span>, 2024.</li> 
+                                        <li><abbr title="Most Valuable Player">MVP</abbr>, Supercoppa Italiana di Pallavolo femminile, 2024.</li>                          
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </dd>
+        </main>
+        <footer>
+            <img class="imgValidCode" src="./materiale/images/valid-xhtml10.png" alt="XHTML valido">
+            <p>XHTML valido Nenad Radulovic & Federazione Italiana Pallavolo - All rights Reserved CSS valido</p>
+            <img class="imgValidCode" src="./materiale/images/vcss-blue.gif" alt="XHTML valido">
+
+        </footer>
+
+
     </body>
 </html>
