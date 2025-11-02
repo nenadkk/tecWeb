@@ -186,6 +186,34 @@ main h2{
 
 }
 
+.premi{
+    padding-left: 5%;
+}
+
+.premi li{
+    list-style-type: none;
+    background-image: url("./materiale/images/coppa.png");
+    padding-left: 2em;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 25px;
+}
+
+#citazioneMilitello{
+    background-color: white;
+    border: solid 1px black;
+    margin: 1.5em;
+    padding: 1em;
+}
+
+#citazioneMilitello h2{
+    text-align: left;
+}
+
+#citazioneMilitello p{
+    text-align: left;
+    line-height: 1.8em;
+}
 
 /*
  =============================================================================
@@ -271,7 +299,7 @@ footer p{
 
 .players img{
     float: left;
-    width: 20%;
+    width:18%;
     padding-right: 2.5em;
     padding-left: 0.5em;
     padding-top: 0.5em;
@@ -294,28 +322,42 @@ footer p{
 }
 
 
-.player dt{
+.player > dt{
     font-weight:bold;
     float: left;
     padding-right: 0.5em;
 }
 
-.player li{
+.player{
+    margin-left: 25%;
+}
+
+.player ul li{
     list-style-type: none;
     background-image: url("./materiale/images/palla.png");
     background-position: left center;
     background-size: 1.2em;
     background-repeat: no-repeat;
-    padding-left: 1.5em;
+    padding-left: 2em;
+    margin-left: 1.0em;
 }
 
-.player{
-    margin-left: 20%;
+
+
+.player ul {
+    margin-top: 1.5em;
 }
 
-dt.riconoscimenti{
-    float: none;
-}
+
+
+
+
+
+
+
+
+
+
 
 
 
