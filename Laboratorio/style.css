@@ -347,6 +347,24 @@ footer p{
 }
 
 
+/*
+ =============================================================================
+  SEZIONE FAIR PLAY
+ =============================================================================
+*/
+
+#listaSentimenti ul{
+    padding-top: 1.5em;
+}
+#listaSentimenti li{
+    list-style-type: none;
+    background-image: url("./materiale/images/palla.png");
+    background-position: left center;
+    background-size: 1.2em;
+    background-repeat: no-repeat;
+    padding-left: 2em;
+    margin-left: 1.0em;
+}
 
 
 
