@@ -270,8 +270,215 @@ Per evitare il disorientamento serve che gli utenti riconoscano i link e capisca
 Se il link non porta a una pagina ma a (esempio) a un dowload serve specificarlo e dire la dimensione del download.
 
 
+È bene non usare mai path assoluti ma solo relativi.
+L'attributo `target` indica il frame in cui aprire la finestra (se non inserito, di default apre il link in una nuova finestra). NON si apre una nuova pagina se la destinazione del link è interna al sito, è ok se cambi lingua, se vai su un'altro sito o se apri un file non html (es. pdf).
+
+Link non ipertestuali: che non rimandano ad HTML ma ad altre cose.
+
+## Accesso ai link da tastiera
+Attributi che aiutano chi non è in grado di usare il mousead accedere ai link. 
+- `accesskey` e 
+- `tabindex` definisce l'ordine con cui viene passato il tab. Il tab raggiunge tutto quello che è interagibile, il primo che viene selezionato è quello con tabindex più alto (di default è 1). Quindi di base se la struttra del mio sito è corretta non serve mettere valori sopra 1. 
+Quando il `tabindex` è 0 vuol dire che obblighiamo un elemento che non riceverebbe il focus lo obblighiamo a riceverlo. 
+Quando il `tabindex` è -1 si toglie dalla sequenza del focus un oggetto che di base riceverebbe il focus. Lo faccio quando magari voglio nascondere degli elementi.
+
+Il focus deve essere SEMPRE visibile.
+
+L'`accesskey` sono scorciatoie per gli screenreader o browser per aprire il link. Non esistono più tuttavia lettere libere. 
 
 
+## Tabelle
+Non vanno mai usate a scopo di presentazione(si faceva una volta ma non è corretto).
+Sono difficili da ridimensionare.
+
+Una tabella si crea con il tag `<table>`. `<tr>` e `<td>` indicano, rispettivamente, le righe e le colonne. Intere tabelle possono poi essere a loro volta contenute in celle di altre tabelle, che vengono quindi nidificate.
+```
+<table>
+    <tr>
+    <td> qui andrà messo il contenuto della tabella </td>
+    </tr>
+</table>
+```
+
+### Regole per le tabelle
+- Non ci possono essere righe senza celle al loro interno
+- Le colonne non si definiscono in modo esplicito ma si definiscono le celle all'interno delle righe tramite gli elementi `td`
+- Ci possono essere celle che occupano più colonne (`colspan`) o più righe (`rowspan`). QUESTA C'È NELLO SCRITTO
+- È possibile creare delle intestazioni per le colonne/righe con gli elementi `th` al posto di `td`
+- Il tag `caption`, posto subito dopo il tag `table`, permette di inserire un titolo (in genere visualizzato sopra la tabella). Le keyword all'interno della `caption` pesano di più per il ranking rispetto a paragrafi o `td`
+- La struttura della tabella in passato veniva descritta nell’attributo `summary` oggi rimpiazzato da un riferimento contenuto in un aria-describedby. Qui dentro non ci va il titolo, ma la descrizione della tabella, far capire come è organizzata. 
+
+### Raggruppare le righe
+È necessario dividere le celle di intestazione dalle celle
+di dati (OBBLIGATORIO PER PASSARE VALIDAZIONE).
+
+- `thead` righe di intestazione
+- `tbody` righe di dati
+- `tfoot` usato in alcuni casi per i totali o per ripetere quello che c'è nel `thead` per aiutare la visualizzazione. Si mette prima del `tbody` così se la tabella è lunga più pagine in automatico li ripete.
+
+Per avere le righe di colori alterni ci sono due modi:
+- mettere alle righe pari una classe (es. `tr class="alternative"` ) a cui poi nel css darò un'altra impostazione
+- con css3 posso dirlo direttamente. Non è supportato da tutti
+```
+<table>
+    <thead>
+        <tr><th>1 col</th><th>2 col</th><th>3 col</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Dato 1</td><td>Dato 2</td><td>Dato 3</td></tr>
+        <tr class=“alternative”><td>Dato 4</td><td>Dato 5</td><td>Dato 6</td></tr>
+        …
+    </tbody>
+</table>
+```
+
+Si può fare anche per le tabelle.
+Sebbene le tabelle si costruiscano per righe, è possibile indirizzare le colonne, per creare effetti di layout ad esse associati.
+- colgroup consente di applicare attributi ad un set di colonne identificato dall’attributo span (simile a rowspan e colspan)
+- col permette di selezionare una singola colonna
+```
+<colgroup>
+    <col />
+    <col class="alternative" />
+    <col />
+    <col class="alternative" />
+</colgroup>
+```
+
+## I form
+Permettono di raccogliere dati o input.
+```
+<form action=“http://server/path/file.php" method=“post" >
+    <!– elementi del form -->
+</form>
+```
+Due attributi fondamentali:
+- `action` chi risponde alla form
+- `method`
+
+Domanda che c'è probabilmente nello scritto: differenza tra metodo get e metodo post
+
+**Metodo get**: è il predefinito, mette tutti i paramentri nell'URL. È limitato dalla lunghezza ed è in chiaro(vulnerabile).
+
+**Metodo post**: viene utilizzato per inviare dati. Se voglio spedire un file non ho altri modi. È molto più sicuro e non ho limiti di lunghezza, però devo ricompilare la form ogni volta.
+
+### Formato della query string
+- Contiene i dati inviati cliccando il pulsante Submit
+- Il nome e il valore di ciascun elemento della form sono codificati come assegnamenti
+    - Ex. nome=Mario&Cognome=Rossi
+- I caratteri speciali sono codificati sottoforma di numeri esadecimali preceduti da %
+    - Ex. Lo spazio è rappresentato da %20: Nome=Mario%20Rossi
+- Con il metodo get la pagina di destinazione può essere salvata come bookmark in modo da poter ripetere la query senza reinserire i dati
+- Se si usa il metodo get la stringa viene inserita dal server in una variabile d’ambiente
+- Se si usa il metodo post si deve leggere la stringa di query dall’input standard
+
+### Campi e pulsanti di una form
+- `input`
+- `textarea`
+- `select`
+
+Hanno attributi particolari
+- `name`: serve per identificare l’input inviato al server. Ogni elemento viene inviato come una coppia nome/valore. Il nome si ricava da questo attributo, il valore è l’input inserito dall’utente in quel campo.
+    - È DIVERSO DA ID. Id serve per indicare un elemento unico e potervici accedere con css o javascript, name serve per spedire dati al server. Non sempre coincidono
+- `readonly=“readonly”`: i campi con questo attributo non sono editabili dall’utente.
+- `disabled=“disabled”`: i campi con questo attributo non sono editabili dall’utente. Il valore di questo campo non viene inviato al server. 
+
+### Il tag `input`
+Questo tag permette da solo di creare diversi elementi di una form a seconda del contenuto dell’attributo type:
+- text: una singola riga di testo con maxlength elementi
+- password: una riga di testo offuscata
+- checkbox: un semplice on/off
+- radio: per selezionare una o più opzioni
+- submit: pulsante per inviare i dati del modulo
+- reset: pulsante per riportare i valori predefiniti nei campi del modulo
+- hidden: per dati non visibili o non editabili
+- file: per caricare file
+- button: per richiamare script lato client
+- image, non usare
+
+`<fieldset>`, tag usato in caso di form molto lunghi per raggruppare gli elementi di una form. Disegna un riquadro attorno agli elementi. Quando c'è sto tag è obbligatorio mettere anche la `<legend>` per aggiungere un'intestazione. Va messo subito dopo l'apertura di `<fieldset>`.
+
+Per ogni input serve una label che indica cosa ci si aspetta in quel input. Non usare mai la `<p>` al posto della `label` perché solo con `label` ci posso "agganciare" l'input.
+Nel tag `<label for="">` all'interno del `for` ci va l'id dell'input a cui si riferisce. Non necessariamente `label` e `input` devono essere adiacenti.
+
+### Checkbox e radio button
+Le linee guida dicono che la dimensione minima che un ogetto deve avere per poter essere interagibile da smartphone è di 44x30 pixel. 
+Se si usano le label con le checkbox basta premere anche sulla label e non per forza sul quadratino.
+
+Radio button permette una sola selezione mentre checkbox permette una scelta multipla.
+
+Nel caso della checbox essa viene inviata al server solo se selezionata. Viene inviato o il valore `on` oppure il valore specificato nell'attributo `value`.
+Nel caso del radio button, c'è sempre una e una sola opzione selezionata e serve specificare un valore di default.
+
+### Hidden
+I tag `input` di tipi `hidden` non vengono visualizzati e non possono interagire con l'utente.
+Possono essere usati per:
+- passaggio dati in modo da non richiederli all’utente in una sequenza di form
+- salvataggio di informazioni calcolate sulla base dei dati inseriti dall’utente
+- definizione di variabili
+
+### File
+L'input di tipo file serve per fare l'upload di un file dal computer dell'utente, non può essere usato nel get.
+Deve contenere l'attributo `enctype="multipart/form-data"`, che vuol dire che questo form spedice diversi tipi di dati sotto forma di coppia chiave-valore, sotto forma di dati in formato binario
+
+## Tag `<textarea>`
+Permette di inviare un testo di più righe. 
+Sono obbligatori gli attributi `rows` e `cols`.
+Ha un tag di apertura e uno di chiusura.
+
+## Tag `<select>`
+Permette di creare menù a tendina. Non sono il massimo per l'accessibilità perché serve una certa precisione del mouse, anche se alcuni browser mitigano questo problema.
+Se si può evitare, soprattutto se con elenchi lunghi, meglio.
+
+## Datalist
+Come i menù a tendina ma posso scrivere per ottenere i valori che corrispondono.
+
+## Innovazioni per le form
+- Al tag `<form>` vengono aggiunti i seguenti attributi
+    - `target`: indica dove visualizzare la risposta (_blank, _self, _parent, _top, _iframename)
+    - `autocomplete`, va usato
+    - `novalidate`, serve per non applicare la validazione di XHTML5
+- E i seguenti tag:
+    - `keygen` per generare le chiavi per un sistema crittografico
+    - `menu` per i menù contestuali
+    - `output` che funge da segnaposto per i risultati di un calcolo
+
+Innovazioni più interessanti:
+- Al tag `<input>` vengono aggiunti i seguenti valori per l’attributo `type`, aggiunti soprattutto per i siti visualizzati da cellulare. Comportano che vengono visualizzati in modo diverso, e quindi permettono un input diverso. Inoltre c'è già una validazione dell'input.
+- `number` (inserisce due freccette per aumentare o diminuire il valore, ma rimane editabile), `range`
+- `color`, si apre un color-picker
+- `email`, controlla che la mail sia sinteticamente corretta
+- `url`
+- `tel`
+- `search`, casella di ricerca
+- `datetime`, `datetime-local`, `date`, `month`, `time`, `week`, aprono un calendario
+
+Nuovi attributi per i controlli
+- required
+- formnovalidate
+- pattern: contiene un’espressione regolare per la validazione dell’input, serve ad aggiungere dei vincoli
+- placeholder: contiene un suggerimento
+- autocomplete, autofocus
+- spellcheck
+- min, max, step
+- multiple, permette di selezionare più file
+
+Attributo autocomplete
+- Aiuta a velocizzare le operazioni di completamento di una form
+- name: nome complete
+- given-name: nome
+- family-name: cognome
+- Non richiedere il titolo (dott., prof. ecc.)
+- Utilizzare spellcheck=“false”
+
+Tag “nocivi” (P. Griffiths)
+- Sono tag che si occupano di aspetti di presentazione o tag non validi
+- Presentazionali: b, i, big, small, marquee, blink, u, tt, sub, sup, center, hr, etc.
+- Altri: applet e embed (si deve usare object), font, frame, frameset, iframe, etc.
+- ATTENZIONE: HTML5 permette l’uso di iframe e di small
+
+
+# Canvas
 
 
 
