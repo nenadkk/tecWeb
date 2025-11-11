@@ -173,6 +173,102 @@ La marcatura del testo deve corrispondere al significato semantico dell’elemen
 </body>
 ```
 
+## Citazioni
+- `blockquote` è un tag di blocco che riporta una citazione, un `q` è il corrispondente di `span` (quidi su singola riga) con la caratteristica semantica di una citazione
+- si può usare l'attributo `cite` per dare una fonte, necessita di un url necessariamente, in alternativa c'è `title`
+- in HTML5 il tag `<cite>` esistema ma deve essere il titolo di un libro, film ecc
+
+## Abbreviazioni, acronimi, indirizzi
+- acronimo è diverso da abbreviazione, acronimo è quando leggo tutte le lettere (es. NATO)
+    - nel caso delle abbreviazioni devo indicare nell'attributo title per esteso cosa vuol dire
+
+## Tag per testo particolare
+- `code`, per del codice
+- `var`, indentifica delle variabili nel codice
+- `samp`, per quando c'è l'outup di un programma
+- `pre` testo preformattato, dove spazi e a capo hanno valore
+
+- `ins` : identifica un inserimento redazionale. Solitamente è visualizzato sottolineato  
+- `del` : identifica una cancellazione redazionale. Solitamente è visualizzata barrata
+- Possono essere usati sia come elementi in linea che di blocco
+
+Alcuni tag semantici più interessanti sono
+- `time`, con attributo `datetime` che contiene data/ora in formato XML
+- `mark` evidenzia il testo
+    - (tralasciando gli heading) i motori di ricerca danno la seguente importanza: strong > em > mark
+- `meter` indica una scala con un max e un min
+- `progress`, per indicare un valore che sta cambiando. Va usato con javascritp se si vuole far vedere una barra che avanza. Se un valore che voglio mostrare è fisso non uso `progress` per indicarlo
+- `small` note a piè pagina
+- `figure`/`picture`
+    - se voglio inserire un'immagine uso `<img>`
+    - se voglio aggiungere un testo all'immagine, come una didascalia all'immagine nei libri allora uso `<figure>`
+    - se voglio inserire un'immagine che cambia (risoluzione o formato) in base al dispositivo, uso `<picture>`
+
+## Elenchi 
+Key word che appaiono all'interno di un punto elenco sono considerate di più dal browser rispetto a quelle che appaiono nel testo normale.
+Sono molto importanti perché attirano l'attenzione. 
+Un testo organizzato per punti elenco è più facilmente leggibile.
+
+Tre tipi di elenchi:
+- `<ul>`, unordered list 
+    - i cui elementi vanno identificati con `<li>` list item
+- `<ol>` ordered list 
+    - anche qui gli elementi sono `<li>`
+    - l'attributo `reverse` permette di invertire la lista
+    - l'attributo `start` dice da che numero partire
+    - l'attributo `type` dice il tipo di marcatore. DA NON USARE, se serve cambiare marcatore lo si fa da css
+    - si può attribuitre un `value` ai punti della lista
+
+- `<dl>` liste di definizione, come in un enciclopedia, un elenco di voci che vengono poi descritte
+    - `<dt>` indica la voce da definire
+    - `<dd>` indica la definizione della voce, possono esserci più `<dd>` per ogni `<dt>`
+
+La navigazione dovrebbe contenere il menù come elenco di link. I link attivi non devono avere la `<a>` perché i broser ad oggi mettono le pagine caricate in cache, non appare neanche il caricamento della pagina e all'utente sembra che il sito non funzioni. ERRORE GRAVE
+
+## Immagini
+Il tag principale è `<img>`. 
+Attributi:
+    - `src` indica l'immagine da prendere
+    - `alt` indica il testo alternativo. Testo che descrive l'immagine. Deve essere breve, per aiutare ma non rallentare troppo. E' OBBLIGATORIO, anche se vuoto deve esserci
+    - `longdesc` da un URI a pagine che descrivono le immagini, per immagini che non possono essere descritte velocemente. DEPRECATO
+    - `width` e `height`, è possibile definire altezza e larghezza sia in HTML che in css. Nella stragrande maggioranza dei casi si fa nel Css per mantenere la divisione tra presentazione e contenuto, però metterlo in html PUO' migliorare l'esperienza utente. Siccome l'html è il primo file che il browser riceve, se la dimensiode dell'immagine è già lì il rendering è più veloce. Se la pagina è particolarmente complessa ha senso mettere le dimensioni all'interno del'html. 
+
+CI SONO DEI TEST PER CAPIRE QUANDO È IL CASO DI FARLO? O È SOLO A DISCREZIONE DELLO SVILUPPATORE
+
+### Lazy loading
+Raramente una pagina è completamente visualizzata, spesso per vederne il resto usiamo lo scroll. Visto che dobbiamo far caricare il più velocemente possibile la pagine, possiamo dire al browser che un'immagine va caricata solo quando viene visualizzata.
+Si fa tramite l'attributo `loading`, che può avere il valore `eager` (default) che carica subito l'immagine, oppure `lazy` che la carica solo quando visibile.
+Questo velocizza il caricamento iniziale ma potrebbe rallentare il caricamento durante lo scrolling. 
+Per non appesantire la pagina si da questo attributo solo alle immagini "below the fold" ovvero quelle che non sono visualizzate senza lo scroll.
+
+Per aggiungere una didascalia:
+```
+<figure>
+    <img src="figure.jpg">
+    <figcaption>Didascalia della figura</figcaption>
+</figure>
+```
+Una figura non deve necessariamente avere un'immagine.
+Un'immagine che è associata a una didascalia non ha bisogno dell'attributo `alt`. Però potrebbe essere comunque necessario. 
+
+Le keyword all'interno di un `alt` sono importanti.
+Esempio di uso del `<picture>`:
+```
+<picture>
+    <source media="(min-width:650px)" srcset="img_pink_flowers.jpg">
+    <source media="(min-width:465px)"srcset="img_white_flower.jpg">
+    <img src="img_orange_flowers.jpg" alt  ="Flowers">
+</picture>
+
+```
+
+## Link
+Tag `<a>` per inserire un link. La destinazione sta all'interno di `href`. All'interno del tag può esserci anche un'immagine e in quel caso deve l'alt non descrive l'immagine ma il suo scopo.
+
+Per evitare il disorientamento serve che gli utenti riconoscano i link e capiscano dove li porta. La sorgente del link deve essere significativa, è bene che non sia l'immagine ma anche in quel caso deve essere esplicitato il suo ruolo. Nel caso di un logo che porta alla home, l'`alt` è "home pagina" e non la descrizione del logo.
+
+Se il link non porta a una pagina ma a (esempio) a un dowload serve specificarlo e dire la dimensione del download.
+
 
 
 
