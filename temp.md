@@ -22,3 +22,31 @@ Usare sempre unità di misura relative e mai assolute
 - sopra i 1200 pixel si muove la testa per leggere, questo alla lunga stanca l'utente
 
 
+
+
+
+# Appunti Lunedì 17/11
+Ottimizzazione di un sito:
+- Occorre capire cosa interessa agli utenti
+- il successo del sito non per forza corrisponde al successo dell'intendo (magari sto tanto tempo su un sito ma alla fine non compro niente)
+
+- fattori interni 
+    - link in entrata
+    - link entranti da piattaforme con una certa trustness
+- fattori esterni 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
