@@ -196,8 +196,160 @@ Se il conflitto avviene tra regole con pari specificità viene applicato l'ultim
     - `* {font-weight: bold;}
     - si applica a TUTTO
 - Raggruppamento di selettori
+    - applica le regole a tutti i tag elencati (l'ordine non è rilevante)
     - `h1, h2 {color: blue; font-size: 10pt; }`
 - Figli e discendenti
+    - l'ordine è rilevante
+    - `p em {...}` applica le regole a tutti gli `<em>` contenuti all'interno di un `<p>`, anche se non non c'è discendenza diretta(ovvero se ci sono altri tag in mezzo)
+    - se si vuole applicare le regole solo ad attributi figli si fa cosi:
+        - (esempio) `body > p {...}`
+- Selettori di adiacenza
+    - `h1 + h2 {...}`
+        - tutti gli `<h2>` che vengono immediatamente dopo un `<h1>`
+        - `<h1>` qui non viene influenzato
+
+### Selettori di attributo
+Sintassi: `elementname[attributename=attributevalue]`.
+Permettono di selezionare un elemento sulla base del valore di un attributo dato.\
+Esempi:
+- `abbr[title]` : tutte le abbreviazioni che hanno un attributo `title`, indipendentemente dal valore
+- `abbr[title="mio titolo"]`: tutte le abbreviazioni con attributo `title` uguale alla stringa “mio titolo”
+- `abbr[title~="mio titolo"]` : tutte le abbreviazioni con attributo title contenente la stringa “mio titolo”
+
+## Ereditarietà e specificità 
+- Ereditarietà : ogni figlio eredita le impostazioni del padre
+- Se vengono definite più regole con la stessa importanza per uno stesso elemento, l'ultima definita è quella che verrà applicata (appato che anche la specificità sia la stessa)
+
+## Specificità 
+Oltre all'ordine di priorità menzionato prima:
+>1. Impostazioni personali dell’utente
+>2. Dichiarazioni definite con `!important`
+>3. Impostazioni di stile inline definite dall’autore della pagina
+>4. Fogli di stile embedded definiti dall’autore
+>5. Fogli di stile esterni definiti dall’autore
+>6. Impostazioni di stile predefinite del browser
+
+ricordando che:
+>Dall'alto verso il basso è l'ordine di priorità, dal basso verso l'alto è l'oridine di applicazione. 
+
+aggiungiamo anche il concetto di specificità.
+
+La specificità richiede calcoli piuttosto complessi, che a volte possono essere fonte di errore nei browser.\
+ATTENZIONE: **solo quando due regole sono in conflitto** la speficità entra in gioco.\
+Si calcolano tre valori: *(num id, num attributi, num tag html)* (sono in ordine di importanza da sinistra verso destra).\
+ATTENZIONE: 
+- Le classi sono contate come attributi.
+- Gli id che sono dentro alle quadre di un attributo non si contano come id ma come attributo.
+
+Si legge il numero a sx, se sono diversi ha priorità quello più alto, se sono uguali si passa al numero in mezzo e si ripete il ragionamento.
+```
+#nav a {color:orange;} /*(1, 0, 1)*/
+a {color:blue;} /*(0, 0, 1)*/
+/* In questo caso ha precedenza il primo */
+```
+In caso di regole che usano la parola `!important` la specificità viene calcolata su 4 valori, in cui la presenza della parola chiave `!important` ha priorità sugli altri.
+
+## Pseudoclassi
+Non è una classe che io definisco tramite l'attributo `class`, ma è uno stato che un elemento può assumere.\
+Sintassi: `selettore:pseudoclasse { ... }`
+- Es: `a:link:hover{ font-size: 2em; }`
+
+PSEUDOCLASSE | RISULTATO
+--------------|-----------
+:link | link non visitato
+:visited | link visitato
+:active | link attivo
+:hover | vi si trova sopra il mouse
+:focus | elemento attivo (tab)
+:first | prima pag per media paginati
+:left | pagine di sinistra
+:right | pagine di destra
+:first-child | prima occorrenza
+:lang | seleziona una lingua
+
+
+ATTENZIONE: `:hover` funziona SOLO su desktop.
+
+## Pseudoelementi
+PSEUDOCLASSE | RISULTATO
+--------------|-----------
+:first-letter | prima lettera di un blocco
+:first-line | prima riga di un blocco
+:before | testo da aggiungere prima di un elemento
+:after | testo da aggiungere dopo un elemento
+
+Attenzione: in CSS3 possono essere usati per aggiungere del contenuto ma questo contenuto NON è raggiungibile dagli screen reader e dai motori di ricerca.
+
+## Sistemi di misura
+Esistono diverse unità di misura in CSS, si dividono in:
+- relative: ex, em, percentuale, rem, vh, vw
+- assolute: cm, mm, in, pt, px, pc
+
+Si usano SEMPRE quelle relative.\
+Le unità assolute si usano:
+- per le media query (tipo vedere quanto è larga una pagina)
+- per indicare lo spessore di un bordo
+
+
+
+Unità | Definizione
+------|------------
+em|Altezza media del font utilizzato
+px|Numero di pixel nello schermo
+in|Inch, pollici (1 in = 2,54 cm)
+cm|Centimetri
+mm|Millimetri
+pt|Punti (1 pt = 1/72 pollici)
+pc|Pica (1 pc = 12 punti)
+%|Valore in percentuale relativo a quello dell’elemento principale
+
+## Definizione dei colori
+- Colori predefiniti
+    - white, red, green
+- Espressi in formato RGB (Red, Green, Blue)
+    - \#RRGGBB
+        - \#FFFFFF è il bianco
+        - se invece di sei numeri ne ho tre, ogni numero si ripete due volte
+    - rgb(y,y,y) oppure rgb(y%,y%,y%)
+- Colori che funzionano su tutti i browser:
+	- aqua
+	- black
+	- blue
+	- fuchsia
+	- gray
+	- green
+	- maroon
+	- navy
+	- olive
+	- purple
+	- red
+	- silver
+	- lime
+	- white
+	- teal
+	- yellow
+	- Tutti i colori composti dai codici 00, 33, 66, 99, CC, FF
+
+
+
+
+
+
+
+
+
+
+
+
+Nello scritto c'è:
+- un es su una tabella accessibile
+- un es sulle regole di specificità
+- chiede qual è la regola più specifica e cosa viene applicate
+- due domande aperte
+- delle domande a crocette
+
+
+
 
 
 
