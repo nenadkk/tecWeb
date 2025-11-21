@@ -4,7 +4,7 @@ I livelli inferiori prendono lo stile di quelli superiori.
 
 Se si hanno dubbi se una certa funzionalità css è o meno supportata da un browser si può consultare il sito [CanIUse](https://caniuse.com/).
 
-## I Fogli di stile
+# I Fogli di stile
 Insieme di regole che indicano la formattazione da apllicare.
 
 Vantaggi:
@@ -43,7 +43,7 @@ Regola per i font:
 Questo perché rispettivamente questi font aiutano alla lettura. 
 Alcuni font possono essere più o meno difficili da leggere per le persone con dislessia.
 
-## Come applicare il CSS
+# Come applicare il CSS
 - Attraverso l'attributo "style" dei tag. 
 NON SI FA MAI, perché non separa contenuto da presentazione.
 - Css enbedded: si mettono le regole nel tag `<style>` all'interno del `<head>`. 
@@ -113,7 +113,7 @@ Un altro modo per inserire il css è con `@import`. Sconsigliata.
 Si trova quando si importano font esterni. 
 Un tempo veniva usato per nascondere certe cose a browser molto vecchi, oggi non ha più senso.
 
-## Regole di applicazione
+# Regole di applicazione dello stile
 Uno stile applicato ad un elemento viene applicato automaticamente anche a tutti i suoi sottoelementi.
 La regola viene ereditata dai figli a meno che questi non la sovrascrivano.
 ```
@@ -125,7 +125,7 @@ La regola viene ereditata dai figli a meno che questi non la sovrascrivano.
     <div> ... testo blu... </div>
 </body>
 ```
-### Procedimento a cascata
+## Procedimento a cascata
 Ordine di prirità quando si applicano le regole di stile:
 1. Impostazioni personali dell’utente
     - dimensioni del font o estensioni che modificano la pagina
@@ -280,7 +280,7 @@ PSEUDOCLASSE | RISULTATO
 
 Attenzione: in CSS3 possono essere usati per aggiungere del contenuto ma questo contenuto NON è raggiungibile dagli screen reader e dai motori di ricerca.
 
-## Sistemi di misura
+# Sistemi di misura
 Esistono diverse unità di misura in CSS, si dividono in:
 - relative: ex, em, percentuale, rem, vh, vw
 - assolute: cm, mm, in, pt, px, pc
@@ -303,7 +303,7 @@ pt|Punti (1 pt = 1/72 pollici)
 pc|Pica (1 pc = 12 punti)
 %|Valore in percentuale relativo a quello dell’elemento principale
 
-## Definizione dei colori
+# Definizione dei colori
 - Colori predefiniti
     - white, red, green
 - Espressi in formato RGB (Red, Green, Blue)
@@ -330,7 +330,7 @@ pc|Pica (1 pc = 12 punti)
 	- yellow
 	- Tutti i colori composti dai codici 00, 33, 66, 99, CC, FF
 
-## Definizione degli URL
+# Definizione degli URL
 Gli URL vengono definiti in questo modo: `url(protocollo://server/percorso)`
 Esempio:
 ```
@@ -340,8 +340,8 @@ body{
 }
 ```
 
-## Testo
-### La scelta del carattere
+# Testo
+## La scelta del carattere
 Se noi non scegliamo un carattere il carattere che viene visualizzato è quello definito dal browser.\
 Oggi gli utenti sono abituati al fatto che il tipo di carattere scelto veicoli l'informazione (si aspettano che anche il font gli comunichi qualcosa).\
 Con CSS3 i font si possono importare, quindi si può dire al browser dove trovare il font nel caso questo non fosse presente sul sistema.\
@@ -351,7 +351,7 @@ Due regole essenziali:
     - Su schermo : la giustificazione parte a sinistra con una linea unica(tutte le parole iniziano allo stesso momento) mentre a destra la frase finisce con l'ultima parola che ci sta (a bandiera).
     - Su stampa: linea dritta sia a sinistra che a destra (aiuta la lettura).
 
-### Font
+## Font
 Possono essere:
 - Proporzionali: ogni carattere occupa una diversa quantità di spazio
     - Più facili da leggere
@@ -363,11 +363,11 @@ Possono essere:
 Evitare i font caligrafici o comunque font particolari. 
 Nonostante riescano a dare un significato in più, stancano molto la lettura.
 
-### Dimensioni del testo
+## Dimensioni del testo
 È bene usare unità relative. Toglie punti se si usano dimensioni fisse.\
 Ad oggi se si definisce in pt o px il font i browser lo ignorano e si adattano alle impostazioni dell'utente.
 
-### Dare stile al testo
+## Dare stile al testo
 - Dimensione: `font-size`
 - Interlinea: `line-height`
     - Deve essere almeno 1.5 perché sia accessibile
@@ -381,7 +381,7 @@ Ad oggi se si definisce in pt o px il font i browser lo ignorano e si adattano a
     - Da usare con molta cautela perché se si sottolinea una parola questa si intende sia un link
 - Colori: `color` e `background-color` specificano colore del testo e dello sfondo
 
-### Per definire tutto insieme
+## Per definire tutto insieme
 Per ridurre la dimensione del foglio di stile è possibile specificare tutto insieme tramite la proprietà scorciatoia `font:`
 - Sintassi:
     - `selettore { font: font-style font-variant font-weight font-size/line-height font-family }`
@@ -390,7 +390,7 @@ Per ridurre la dimensione del foglio di stile è possibile specificare tutto ins
 
 ATTENZIONE: se si usa `font` e non si assegna un valore a ogni attributo, tutti gli attributi non specificati vengono riscritti con valori di default.
 
-### Incorporare font esterni
+## Incorporare font esterni
 La regola `@font-face` permette di scaricare ed utilizzare font personalizzati:
 - `@font-face{ <descrizione del font>}`
 La descrizione del font contiene delle coppie `descrittore:valore` dove descrittore può essere:
@@ -400,7 +400,7 @@ La descrizione del font contiene delle coppie `descrittore:valore` dove descritt
 
 Attenzione alle licenze d’uso e al supporto dei browser.
 
-### Altri elementi per dare stile al testo
+## Altri elementi per dare stile al testo
 (Difficile che si userano mai ma giusto per sapere che ci sono).
 - Distanza tra le lettere: `letter-spacing`
 - Distanza tra le parole: `word-spacing`
@@ -408,7 +408,7 @@ Attenzione alle licenze d’uso e al supporto dei browser.
 - Allineamento orizzontale: `text-align`
 - Allinemento verticale: `vertical-align`
 
-## Immagini e il CSS
+# Immagini e il CSS
 Tramite CSS si può dare uno stile alle immagini proprio come al testo. Si può però anche inserire delle immagini tramite CSS.\
 Il decidere se un'immagine va inserita con il tag `<img>` o come background di qualcosa non è una decisione che va presa sulla base di qual è il risultato finale.
 Perché nella stragrande maggioranza dei casi si può ottenere lo stesso risultato nei due modi. 
@@ -428,7 +428,7 @@ Altre proprietà:
 - `background-repeat`
 - `background-position`, di default è nell'angolo superiore sx
 
-### Tutto insieme
+## Tutto insieme
 Come per i font è possibile usare una scorciatoia per definire tutto insieme:
 ```
 selettore { background: background-color background-image background-repeat background-attachment background-position }
@@ -439,6 +439,7 @@ ATTENZIONE: diversamente da font, l’ordine con cui vengono specificate le prop
 
 Ricordarsi di mettere come colore di fallback il colore predominante nell'immagine, nel caso in cui l'immagine non si caricasse.
 
+# Posizionare un elemento
 ## Dimensioni di un elemento
 ![Img di come funzionano i margini](./img/css_margini.png)
 
