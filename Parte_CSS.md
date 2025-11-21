@@ -1,4 +1,4 @@
-# Tech Web, CSS
+# CSS
 CSS (Cascading Style Sheets), "Cascading" indica che possiamo definire lo stile in diversi punti, e in base a dove lo definiamo ha più o meno priorità. 
 I livelli inferiori prendono lo stile di quelli superiori.
 
