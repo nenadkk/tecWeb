@@ -330,16 +330,149 @@ pc|Pica (1 pc = 12 punti)
 	- yellow
 	- Tutti i colori composti dai codici 00, 33, 66, 99, CC, FF
 
+## Definizione degli URL
+Gli URL vengono definiti in questo modo: `url(protocollo://server/percorso)`
+Esempio:
+```
+body{
+    background-image:url(percorso/imagine.gif);
+    background-repeat:repeat;
+}
+```
+
+## Testo
+### La scelta del carattere
+Se noi non scegliamo un carattere il carattere che viene visualizzato è quello definito dal browser.\
+Oggi gli utenti sono abituati al fatto che il tipo di carattere scelto veicoli l'informazione (si aspettano che anche il font gli comunichi qualcosa).\
+Con CSS3 i font si possono importare, quindi si può dire al browser dove trovare il font nel caso questo non fosse presente sul sistema.\
+Due regole essenziali:
+- Usare i font senza grazie per il testo che si visualizza su schermo e con grazie per quello su carta
+- Cosa simile per la giustificazione:
+    - Su schermo : la giustificazione parte a sinistra con una linea unica(tutte le parole iniziano allo stesso momento) mentre a destra la frase finisce con l'ultima parola che ci sta (a bandiera).
+    - Su stampa: linea dritta sia a sinistra che a destra (aiuta la lettura).
+
+### Font
+Possono essere:
+- Proporzionali: ogni carattere occupa una diversa quantità di spazio
+    - Più facili da leggere
+    - Es. Times, Helvetica, Arial
+- A larghezza fissa: ogni carattere usa la stessa quantità di spazio
+    - possono favorire l'impaginazione quando c'è bisogno di incolonnare testo
+    - Es. Courier, Monaco
+
+Evitare i font caligrafici o comunque font particolari. 
+Nonostante riescano a dare un significato in più, stancano molto la lettura.
+
+### Dimensioni del testo
+È bene usare unità relative. Toglie punti se si usano dimensioni fisse.\
+Ad oggi se si definisce in pt o px il font i browser lo ignorano e si adattano alle impostazioni dell'utente.
+
+### Dare stile al testo
+- Dimensione: `font-size`
+- Interlinea: `line-height`
+    - Deve essere almeno 1.5 perché sia accessibile
+- Sovvrapposizione : `z-index`
+    - Qunado ci sono delle cose che si sovrappongono, per decidere cosa sta sotto e cosa sta sopra
+- Corsivo: `font-style` (valore più utilizzato italic)
+- Livelli di grassetto: `font-weight` (bold, normal, bolder,lighter,…)
+- Variante maiuscoletto: `font-variant` (ex: small-caps)
+- Maiuscolo o minuscolo: `text-trasform` (uppercase, lowercase)
+- Decorazione: `text-decoration` (underline, overline, line-through, none)
+    - Da usare con molta cautela perché se si sottolinea una parola questa si intende sia un link
+- Colori: `color` e `background-color` specificano colore del testo e dello sfondo
+
+### Per definire tutto insieme
+Per ridurre la dimensione del foglio di stile è possibile specificare tutto insieme tramite la proprietà scorciatoia `font:`
+- Sintassi:
+    - `selettore { font: font-style font-variant font-weight font-size/line-height font-family }`
+- Esempio:
+    - `p { font: italic small-caps bold 0.8em/1.5 arial, Helvetica, sans-serif}`
+
+ATTENZIONE: se si usa `font` e non si assegna un valore a ogni attributo, tutti gli attributi non specificati vengono riscritti con valori di default.
+
+### Incorporare font esterni
+La regola `@font-face` permette di scaricare ed utilizzare font personalizzati:
+- `@font-face{ <descrizione del font>}`
+La descrizione del font contiene delle coppie `descrittore:valore` dove descrittore può essere:
+- `font-family`: nome da associare al font
+- `src`: local(PERCORSO_LOCALE)/url(URL)
+- `font-style`, font-weight, font-variant e font-stretch
+
+Attenzione alle licenze d’uso e al supporto dei browser.
+
+### Altri elementi per dare stile al testo
+(Difficile che si userano mai ma giusto per sapere che ci sono).
+- Distanza tra le lettere: `letter-spacing`
+- Distanza tra le parole: `word-spacing`
+- Indentazione: `text-indent`
+- Allineamento orizzontale: `text-align`
+- Allinemento verticale: `vertical-align`
+
+## Immagini e il CSS
+Tramite CSS si può dare uno stile alle immagini proprio come al testo. Si può però anche inserire delle immagini tramite CSS.\
+Il decidere se un'immagine va inserita con il tag `<img>` o come background di qualcosa non è una decisione che va presa sulla base di qual è il risultato finale.
+Perché nella stragrande maggioranza dei casi si può ottenere lo stesso risultato nei due modi. 
+
+- Se l'immagine è l'ancora di un link si usa `<img>`
+- Se l'immagine porta del contenuto questo contenuto va portato anche a chi non può vedere l'immagine. 
+L'unico modo per farlo è mettere un `<img>` con l'attributo `alt`. 
+Questo aiuta anche nel ranking.
+
+Se invece l'immagine non è di contenuto ma solo decorativa, è meglio inserirla come background. Non è sempre possibile. Per le immagini solo decorative si mette l'`alt` vuoto.
+
+Per separare struttura da presentazione, una buona tecnica è inserire le immagini
+come background di `<div>` o altri elementi:
+`body { background-image: url(images/miagif.gif);}`
+Altre proprietà:
+- `background-attachment`: stabilisce se l’immagine segue il contenuto nello scroll oppure no
+- `background-repeat`
+- `background-position`, di default è nell'angolo superiore sx
+
+### Tutto insieme
+Come per i font è possibile usare una scorciatoia per definire tutto insieme:
+```
+selettore { background: background-color background-image background-repeat background-attachment background-position }
+```
+Esempio:
+- `p { background: #fff url(images/mygif.gif) top left fixed norepeat;}`
+ATTENZIONE: diversamente da font, l’ordine con cui vengono specificate le proprietà non è rilevante.
+
+Ricordarsi di mettere come colore di fallback il colore predominante nell'immagine, nel caso in cui l'immagine non si caricasse.
+
+## Dimensioni di un elemento
+![Img di come funzionano i margini](./img/css_margini.png)
 
 
+- Con `width` ed `height` in realtà non definiamo le dimensioni di un elemento, ma solo del suo contenuto:
+- Es: un elemento di dimensioni 100x50 con bordo, padding e margine di 50px su tutti i lati, in realtà misura 400x350px
+- CSS definisce anche `min-width` e `min-height`.
+- overflow: controlla la visualizzazione del contenuto che sporge dalla dimensione del box. Valori: `visible`, `hidden`, `scroll`, `auto`.
+- Gli fondi, sia immagini che colori, occupano l’area del contenuto e del padding
+    - Il background copre il padding ma non il margine.
 
+Per avere una preview dei bordi provare su [border-radius](http://border-radius.com/).
 
+## Display
+Gli elementi si dividono in due gruppi:
+- di blocco (`<div>`, `<p>`, ...)
+- in linea (`<em>`, `<span>`)
+È possibile modificare questa caratteristica tramite la proprietà `display`
+- `display:none` impedisce la visualizzazione
+- Può essere usato per eliminare alcune parti dalla stampa
+- Non è utile per le pagine per i non vedenti visto che nasconde il blocco anche agli screen-reader
 
+## Come si posizionano i blocchi
+Due metodi
+- Con la versione CSS2 dei fogli di stile è possibile abbandonare completamente l’uso delle tabelle perché è possibile agire sulla disposizione degli elementi nella pagina.
+    - si parte da un posizionamento statico e poi si va a modificare la proprietà di `float`
+- In CSS3
+    - Proprietà `flex`
+    - Proprietà `grid`, appesantisce il rendering soprattutto se annidate
 
-
-
-
-
+Posizionamento statico e dinamico:
+- Il posizionamento statico (default) dispone il box secondo il flusso normale
+- Il posizionamento relativo inizialmente calcola la posizione del box secondo il flusso normale, poi sposta il box delle proprietà top, bottom, right e left. 
+Questo spostamento non ha effetti sul posizionamento dei box successivi.
 
 Nello scritto c'è:
 - un es su una tabella accessibile
@@ -347,6 +480,11 @@ Nello scritto c'è:
 - chiede qual è la regola più specifica e cosa viene applicate
 - due domande aperte
 - delle domande a crocette
+
+Domanda d'esame: Differenza tra attributo `id` e `class`.
+- L'`id` permette di identificare un unico tag mentre `class` un insieme di tag
+- Hanno una diversa specificità
+- `id` può essere usato come destinazione di un link
 
 
 
