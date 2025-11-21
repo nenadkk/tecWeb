@@ -1,0 +1,9 @@
+---
+title: "Appunti HTML"
+toc: true
+geometry:
+  - margin=2.5cm
+header-includes: |
+  \usepackage{etoolbox}  
+  \appto\tableofcontents{\clearpage}
+---

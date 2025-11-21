@@ -1,5 +1,4 @@
-# Appunti di Tech Web, HTML
-## Fonti e siti utili
+# Fonti e siti utili
 - Specifiche W3C per XHTML
     - http://www.w3.org/TR/html5/
 - MDN
@@ -36,13 +35,13 @@
 
 - Accessibilità e ranking sono il motivo per cui sono state fatte la maggior parte delle scelte
 
-## HTML5
+# HTML5
 - Per progetto: HTML con sintassi XML
 
 - Tre elementi da separare: Comportamento (JavaScript), Struttura (codice html) e Presentazione (css)
     - La divisione rende tutto più mantenibile
 
-## Sintassi XHTML
+# Sintassi XHTML
 
 - i tag e gli attributi sono case sensitive (tutto in minuscolo)
 - i tag devono sempre essere chiusi (anche se sono vuoti)
@@ -57,17 +56,17 @@
 - un elemento in linea non può contenere un elemento di blocco
 - Se i browser trovano del codice non valido cercano di visualizzarlo al meglio, ma questo può portare ad interpretazioni arbitrarie
 
-### Alcune semplificazioni fatte da HTML
+## Alcune semplificazioni fatte da HTML
 - `<!DOCTYPE html>`
 - `<meta charset="utf-8">`
 - `<script rel="script.js"></script>`
 - `<link rel="stylesheet" href="print.css"/>`
 
-### Prologo XML
+## Prologo XML
 - Il W3C raccomanda di usare il prologo XML ma molti browser non lo gestiscono bene e causano errori, quindi è **da evitare**.
 - `<?xml version=“1.0” encoding=“ISO-8859-1”?>`   
 
-### Elementi che vengono ignorati dai browser
+## Elementi che vengono ignorati dai browser
 - le interruzioni di linea non identificate con `<br/>` e non contenute in un tag `<pre>`
 - tabulazioni e spazi multipli
 - tag `<p>` nidificati
@@ -144,7 +143,7 @@ Se ciò che si vuole scrivere ha un valore semantico serve usare tag diversi
         - es. di uso: quando c'è una parola in un'altra lingua, si mette quella parola tra `<span>` e si da l'attributo `lang` indicando la lingua.\
         A livello visivo non cambia niente ma il motore di ricerca/screen reader sanno che quella è una parola in un'altra lingua.
 
-## Markup strutturale
+# Markup strutturale
 HTML5 aggiunge dei tag per descrivere meglio la struttura del documento:
 
 - `<header>` e `<footer>`, rispettivamente intestazione(o banner) e piè di pagina.\
