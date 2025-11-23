@@ -488,6 +488,124 @@ Domanda d'esame: Differenza tra attributo `id` e `class`.
 - `id` può essere usato come destinazione di un link
 
 
+# Implementazione
+La prima cosa che si fa è fare un po' di pulizia per togliere eventuali impostazioni presistenti che possono dare fastidio:
+```
+* {
+    padding: 0em;
+    margin: 0em;
+}
+```
+## Versione stampata
+Nella stampa le uniche form che ha senso stampare sono quelle con tanti campi.\
+Per togliere qualcosa:
+```
+#menu {
+    display: none;
+}
+```
+Ricordarsi che chi stampa è una persona vedente.\
+Per quanto riguarda i link si può mettere il testo del link e poi aggiungerci l'url:
+```
+a:link:after, a:visited:after {
+    content: " [" attr(href) "] ";
+    font-size:90%;
+}
+```
+In CSS3 si può anche controllare che il link non sia un link relativo:
+```
+a[href^="/"]:after {
+    content: " (http://www.sito.it" attr(href) ") ";
+}
+```
+
+# Novità di CSS3 (quelle stabili)
+- Nuovi selettori di attributo:
+    - `elem[attr] `, `elem[attr=“value”] `, `elem[attr~=“value”] `, `elem[attr|=“value”] ` ecc.
+
+- Nuove pseudoclassi e pseudoelementi
+    - lista completa: https://www.w3schools.com/cssref/css_selectors.asp
+
+## Variabili
+Spesso nella definizione del layout, ci sono delle caratteristiche comuni (colori, dimensioni dei font ecc.).
+Per molto tempo il CSS non ha fornito supporto per le variabili in quanto è un linguaggio di markup e non di programmazione.\
+Per ovviare a questo problema i programmatori hanno iniziato a usare pre-processori, che però richiedono prefissi. 
+Ad esempio: $ in Sass e @ in LESS.\
+Si definiscono con `--nomeVariabile`.\
+Si usano con la funzione `var(--nomeVariabile)`.\
+Le variabili sono locali, a meno che non vengano definite dentro il selettore `:root`:
+```
+:root{
+    --coloreTesto: black;
+    --coloreSfondo: white;
+    --link: blue;
+    --linkVisitati: purple;
+}
+body {
+    color: var(--coloreTesto);
+    background-color: var(--coloreSfondo);
+}
+a:link{
+    color: var(--link);
+  }
+a:visited{
+    color: var(--linkVisitati);
+  }
+```
+Le variabili locali sovrascrivono quelle globali.
+
+## RGBA e opacità
+L'opacità si può definire o dando la trasparenza a un colore o a un box.\
+Per i colori si usa: 
+```
+.semiTrasparente{
+    color: rgba(0, 0, 0, 0.5);
+}
+```
+dove il quarto numero è compreso tra 0 e 1, e indica la trasparenza.\
+Mentre per gli elementi si usa:
+```
+.elem{
+    opacity: 0.5;
+}
+```
+## Ombreggiature
+Si possono dare sia al test che agli elementi:
+```
+p {
+    text-shadow: 10px 10px 10px #999;
+}
+
+.conOmbra {
+    box-shadow: 10px 10px 10px 5px rgba(200, 200, 200, 1);
+}
+```
+Da fare attenzione con le ombreggiature al testo perché possono rendere il testo molto poco leggibile.
+
+## Più immagini di sfondo
+```
+body {
+    background: url(img1.jgp) no-repeat top left,
+                url(img2.jgp) repeat-x bottom left,
+                url(img3.jgp) repeat-y top right;
+}
+```
+## Media queries
+Vengono usate per dare dei fogli di stile diversi in base dal contesto.
+```
+@media screen and (min-width: 1024px){
+    .classe{
+    width: 960px;
+        }
+}
+@media screen and (max-width: 768px){
+    .classe{
+        width: 100%;
+    }
+}
+```
+
+## Impaginazione
 
 
 
@@ -504,3 +622,18 @@ Domanda d'esame: Differenza tra attributo `id` e `class`.
 
 
 
+
+
+
+
+
+
+# Bibliografia
+- Specifiche W3C
+    - http://www.w3.org/Style/CSS/
+- Validatore
+    - http://jigsaw.w3.org/css-validator/
+- Esempi
+    - http://www.htmldog.com/examples/
+    - http://www.css3.info/
+    - http://css3generator.com/
