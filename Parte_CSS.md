@@ -606,6 +606,12 @@ Vengono usate per dare dei fogli di stile diversi in base dal contesto.
 ```
 
 ## Impaginazione
+CSS3 definisce tre nuovi modelli di impaginazione:
+- Multi-column layout
+- Flexible Box Layout
+- Grid Layout
+Il primo ha un buon supporto da parte di tutti i browser, gli altri sono ben supportati solo nei browser più recenti (attenzione alla retrocompatibilità!)
+
 
 
 
